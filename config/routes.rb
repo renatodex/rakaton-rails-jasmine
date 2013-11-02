@@ -1,5 +1,6 @@
 RakatonRailsJasmine0211::Application.routes.draw do
   get "home/index"
+  get "is-opened-store" => 'home#is_opened_store', :as => 'opened_store'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

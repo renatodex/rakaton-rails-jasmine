@@ -1,0 +1,37 @@
+(function(_window) {
+		
+	var Farmacy = function() {
+		
+		var _check_store_status = function() {
+			var opened_store_url = $('.page-data').data('store-opened-url');
+			$.get(opened_store_url, {}, function(data) {
+				if(data.opened == true) {
+					alert('Nossa loja está aberta, corra pra comprar!')
+				}
+			})
+		}
+		
+		var _events = function() {
+			$('.explanation-link').bind('click', function() {
+				$('.explanation-modal').show();
+			})
+		
+			$('.explanation-modal-close').bind('click', function() {
+				$('.explanation-modal').hide();
+			})
+			
+			$('.is-store-opened').bind('click', function() {
+				_check_store_status();
+			})
+		}
+		
+		_events();
+		
+		return {
+			events: _events
+		}
+	}
+	
+	_window.Farmacy = new Farmacy();
+	
+})(window);
